@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WebGLAR</title>
+    <title>Unity WebGL Player | WebAR-CarController</title>
     <meta name="description" content="">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -21,23 +21,19 @@
         </div>
       </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <button id="entervr" value="Enter VR" disabled>VR</button>
-        <button id="enterar" value="Enter AR" disabled>AR</button>
-        <div id="unity-webxr-link">Using <a href="https://github.com/De-Panther/unity-webxr-export" target="_blank" title="WebXR Export">WebXR Export</a></div>
-        <div id="unity-build-title">WebGLAR</div>
+       
       </div>
     </div>
     <script>
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/WebGLARTest.loader.js";
+      var loaderUrl = buildUrl + "/v2.loader.js";
       var config = {
-        dataUrl: buildUrl + "/WebGLARTest.data",
-        frameworkUrl: buildUrl + "/WebGLARTest.framework.js",
-        codeUrl: buildUrl + "/WebGLARTest.wasm",
+        dataUrl: buildUrl + "/v2.data",
+        frameworkUrl: buildUrl + "/v2.framework.js",
+        codeUrl: buildUrl + "/v2.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "WebGLAR",
+        productName: "WebAR-CarController",
         productVersion: "0.1",
       };
 
@@ -72,22 +68,7 @@
       };
       document.body.appendChild(script);
 
-      let enterARButton = document.getElementById('enterar');
-      let enterVRButton = document.getElementById('entervr');
 
-      document.addEventListener('onARSupportedCheck', function (event) {
-        enterARButton.disabled = !event.detail.supported;
-      }, false);
-      document.addEventListener('onVRSupportedCheck', function (event) {
-        enterVRButton.disabled = !event.detail.supported;
-      }, false);
-
-      enterARButton.addEventListener('click', function (event) {
-        unityInstance.Module.WebXR.toggleAR();
-      }, false);
-      enterVRButton.addEventListener('click', function (event) {
-        unityInstance.Module.WebXR.toggleVR();
-      }, false);
     </script>
   </body>
 </html>
